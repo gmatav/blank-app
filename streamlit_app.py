@@ -1,30 +1,29 @@
 import streamlit as st
 
-import streamlit as st
-
 # -----------------------------
-# Page config (must be first)
+# Page config
 # -----------------------------
 st.set_page_config(
     page_title="Genetic Analysis Toolkit",
     page_icon="🧬",
-    layout="wide",
-    initial_sidebar_state="expanded"
+    layout="wide"
 )
 
 # -----------------------------
-# Title / Header
+# Title
 # -----------------------------
 st.title("🧬 Genetic Analysis Toolkit")
 
 st.markdown("""
-Welcome to your genetic analysis environment.
+Welcome! Choose a tool:
 
-Use the sidebar to navigate between tools, or jump directly below:
+- 📍 Closest Populations  
+- 🧪 2-Way Admixture (optimized)  
+- ⚖️ 2-Way Fixed Mixture (test ratios)  
 """)
 
 # -----------------------------
-# Navigation buttons (nice UX)
+# Navigation buttons
 # -----------------------------
 col1, col2 = st.columns(2)
 
@@ -33,27 +32,26 @@ with col1:
         st.switch_page("pages/Closest_Populations.py")
 
     if st.button("🧪 2-Way Admixture"):
-        st.switch_page("pages/2-way-admixture.py")
+        st.switch_page("pages/two_way_admixture.py")
 
 with col2:
+    if st.button("⚖️ Fixed Mixture"):
+        st.switch_page("pages/Admixture_Fixed.py")
+
     if st.button("🧪 3-Way Admixture"):
-        st.switch_page("pages/3_Admixture_3_Way.py")
-
-    if st.button("⚙️ Custom Admixture"):
-        st.switch_page("pages/4_Custom_Admixture.py")
-
+        st.switch_page("pages/three_way_admixture.py")
 
 # -----------------------------
-# Info / Footer
+# Footer
 # -----------------------------
 st.markdown("---")
 
 st.markdown("""
-### 🧠 About this app
+### 🧠 Notes
 
-- Explore genetic distances
-- Compute admixture models
-- Build custom ancestry profiles
+- Use *Closest Populations* to explore similarity  
+- Use *2-Way Admixture* for best-fit ancestry  
+- Use *Fixed Mixture* to test hypotheses  
 
-⚠️ Always remember to save your work (git commit + push)
+⚠️ Results depend on dataset and parameters.
 """)
